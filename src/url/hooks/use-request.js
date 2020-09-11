@@ -1,4 +1,3 @@
-import { useState } from "react";
 
 export const usePostRequest = () => {
   const sendRequest = (url, body) => {
