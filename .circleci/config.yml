@@ -1,4 +1,8 @@
-version: 2
+version: 2.1
+
+orbs:
+  codecov: codecov/codecov@1.1.1
+
 jobs:
   node:
     working_directory: ~/bookmark-catalogue-web
@@ -29,9 +33,19 @@ jobs:
           name: npm tests
           command: |
             mkdir -p test-results/jest
+            npm run build
             npm test
           environment:
             JEST_JUNIT_OUTPUT: test-results/jest/junit.xml
+
+      - run:
+          name: Generate Coverage Report
+          command: set CI=true&&npm test -- --coverage
+
+      - codecov/upload:
+          token: fa5be54b-2563-4389-912d-fb671e2ae45c
+          file: coverage/clover.xml
+
 
       - persist_to_workspace:
           root: ~/bookmark-catalogue-web

@@ -1,6 +1,6 @@
 import "@testing-library/jest-dom";
 import React from "react";
-import CreateCard from "../../url/components/create-card";
+import CreateCard from "./create-card";
 import { rest } from "msw";
 import { setupServer } from "msw/node";
 import {
@@ -10,7 +10,7 @@ import {
   waitForElement,
   wait,
 } from "@testing-library/react";
-import CreateShortUrl from "../../url/components/create-short-url";
+import CreateShortUrl from "./create-short-url";
 
 const server = setupServer(
   rest.post("/short-url", (req, res, ctx) => {
