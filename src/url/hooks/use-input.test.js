@@ -1,5 +1,5 @@
 import { renderHook, act } from "@testing-library/react-hooks";
-import useInput from "../../url/hooks/use-input";
+import useInput from "./use-input";
 
 test("allows to maintain the state of the form", () => {
   const { result } = renderHook(() =>
