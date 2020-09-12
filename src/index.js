@@ -1,15 +1,22 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import 'bootstrap/dist/css/bootstrap.css';
-import './index.css';
-import * as serviceWorker from './serviceWorker';
-import CreateCard from './url/components/create-card';
+import React from "react";
+import ReactDOM from "react-dom";
+import "bootstrap/dist/css/bootstrap.css";
+import "./index.css";
+import * as serviceWorker from "./serviceWorker";
+import { BrowserRouter, Route } from "react-router-dom";
+import CreateShortUrl from "./bookmark-catalogue/components/create-short-url";
+import CreateCard from "./bookmark-catalogue/components/create-card";
+import Home from "./bookmark-catalogue/components/home";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <CreateCard/>
-  </React.StrictMode>,
-  document.getElementById('root')
+  <BrowserRouter>
+    <div>
+      <Route exact path="/" component={Home} />
+      <Route exact path="/generate" component={CreateShortUrl} />
+      <Route exact path="/create-card" component={CreateCard} />
+    </div>
+  </BrowserRouter>,
+  document.getElementById("root")
 );
 
 // If you want your app to work offline and load faster, you can change
