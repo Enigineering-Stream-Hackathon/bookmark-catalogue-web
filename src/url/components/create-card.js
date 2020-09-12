@@ -12,7 +12,6 @@ const CardForm = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(JSON.stringify(value));
     props.createCard(value);
     reset();
   };
@@ -72,7 +71,7 @@ const CreateCard = () => {
   const createCard = (body) => {
     sendRequest("http://localhost:8080/card", body)
       .then((response) => setIsSuccess(true))
-      .catch(() => console.log("Error occurred generating short url"));
+      .catch(() => alert("Error occurred generating short url"));
   };
 
   return (

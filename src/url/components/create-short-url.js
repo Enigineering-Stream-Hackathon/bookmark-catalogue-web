@@ -11,7 +11,6 @@ const GenerateUrl = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(JSON.stringify(value));
     props.generateUrl(value);
     reset();
   };
@@ -55,10 +54,9 @@ const CreateShortUrl = () => {
     sendRequest("http://localhost:8080/short-url", body)
       .then((response) => response.json())
       .then((json) => {
-        console.log(JSON.stringify(json));
         setShortUrl(json.shortUrl);
       })
-      .catch(() => console.log("Error occurred generating short url"));
+      .catch(() => alert("Error occurred generating short url"));
   };
 
   return (

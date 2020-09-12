@@ -10,7 +10,7 @@ export const usePostRequest = () => {
     });
   };
   return {
-    sendRequest,
+    sendRequest
   };
 };
 
