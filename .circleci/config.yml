@@ -1,0 +1,65 @@
+version: 2.1
+
+orbs:
+  codecov: codecov/codecov@1.1.1
+
+jobs:
+  node:
+    working_directory: ~/bookmark-catalogue-web
+    docker:
+      - image: circleci/node:8
+    steps:
+      - checkout
+
+      - restore_cache:
+          key: npm-v1-{{ checksum "package-lock.json" }}-{{ arch }}
+
+      - restore_cache:
+          key: node-v1-{{ checksum "package.json" }}-{{ arch }}
+
+      - run: npm install
+
+      - save_cache:
+          key: npm-v1-{{ checksum "package-lock.json" }}-{{ arch }}
+          paths:
+            - ~/.cache/npm
+
+      - save_cache:
+          key: node-v1-{{ checksum "package.json" }}-{{ arch }}
+          paths:
+            - node_modules
+
+      - run:
+          name: npm tests
+          command: |
+            mkdir -p test-results/jest
+            npm run build
+            npm test
+          environment:
+            JEST_JUNIT_OUTPUT: test-results/jest/junit.xml
+
+      - run:
+          name: Generate Coverage Report
+          command: set CI=true&&npm test -- --coverage
+
+      - codecov/upload:
+          token: fa5be54b-2563-4389-912d-fb671e2ae45c
+          file: coverage/clover.xml
+
+
+      - persist_to_workspace:
+          root: ~/bookmark-catalogue-web
+          paths:
+            - node_modules
+
+      - store_test_results:
+          path: test-results
+
+      - store_artifacts:
+          path: test-results
+
+workflows:
+  version: 2
+  node-work:
+    jobs:
+      - node
