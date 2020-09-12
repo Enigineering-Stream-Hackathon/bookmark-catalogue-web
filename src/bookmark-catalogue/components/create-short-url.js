@@ -33,7 +33,6 @@ const GenerateUrl = (props) => {
           id="expiryDate"
           className="form-control"
           type="date"
-          id="expiryDate"
           name="expiryDate"
           value={value.expiryDate}
           onChange={handleChange}

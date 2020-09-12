@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { BrowserRouter, Link, Router } from "react-router-dom";
+import React from "react";
+import { Link } from "react-router-dom";
 
 const Home = () => (
   <div>
