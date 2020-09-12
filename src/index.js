@@ -7,6 +7,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 import CreateShortUrl from "./bookmark-catalogue/components/create-short-url";
 import CreateCard from "./bookmark-catalogue/components/create-card";
 import Home from "./bookmark-catalogue/components/home";
+import CreateUser from "./bookmark-catalogue/components/add-user";
 
 ReactDOM.render(
   <BrowserRouter>
@@ -14,6 +15,7 @@ ReactDOM.render(
       <Route exact path="/" component={Home} />
       <Route exact path="/generate" component={CreateShortUrl} />
       <Route exact path="/create-card" component={CreateCard} />
+      <Route exact path="/user" component={CreateUser}/>
     </div>
   </BrowserRouter>,
   document.getElementById("root")
