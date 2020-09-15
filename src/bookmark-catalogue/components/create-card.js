@@ -8,12 +8,18 @@ const CardForm = (props) => {
     title: "",
     description: "",
     longUrl: "",
+    context: props.user,
+    creator: props.user,
+    featureTeam:"",
+    tribe:"",
+    platform:""
   };
   const { value, reset, handleChange } = useInput(initialValue);
 
   const handleSubmit = (event) => {
     event.preventDefault();
     props.createCard(value);
+    console.log(JSON.stringify(value));
     reset();
   };
 
@@ -37,7 +43,7 @@ const CardForm = (props) => {
           Description
         </FormLabel>
         <input
-        id="description"
+          id="description"
           className="form-control"
           type="text"
           name="description"
@@ -58,6 +64,57 @@ const CardForm = (props) => {
           onChange={handleChange}
         />
       </FormGroup>
+      <Form.Group>
+        <Form.Label className="my-1 mr-2 ml-2" htmlFor="featureTeam">
+          Feature Team
+        </Form.Label>
+        <Form.Control
+          as="select"
+          name="featureTeam"
+          id="featureTeam"
+          value={value.featureTeam}
+          onChange={handleChange}
+        >
+          <option>FT1</option>
+          <option>FT2</option>
+          <option>FT3</option>
+          <option>FT4</option>
+        </Form.Control>
+      </Form.Group>
+      <Form.Group>
+        <Form.Label className="my-1 mr-2 ml-2" htmlFor="tribe">
+          Tribe
+        </Form.Label>
+        <Form.Control
+          as="select"
+          name="tribe"
+          id="tribe"
+          value={value.tribe}
+          onChange={handleChange}
+        >
+          <option>Tribe1</option>
+          <option>Tribe2</option>
+          <option>Tribe4</option>
+          <option>Tribe5</option>
+        </Form.Control>
+      </Form.Group>
+      <Form.Group>
+        <Form.Label className="my-1 mr-2 ml-2" htmlFor="platform">
+          Platform
+        </Form.Label>
+        <Form.Control
+          as="select"
+          name="platform"
+          id="platform"
+          value={value.platform}
+          onChange={handleChange}
+        >
+          <option>Platform1</option>
+          <option>Platform2</option>
+          <option>Platform3</option>
+          <option>Platform4</option>
+        </Form.Control>
+      </Form.Group>
       <Button className="btn btn-primary my-1 mr-2 ml-2" type="submit">
         Create New
       </Button>
@@ -65,9 +122,10 @@ const CardForm = (props) => {
   );
 };
 
-const CreateCard = () => {
+const CreateCard = (props) => {
   const [isSuccess, setIsSuccess] = useState(false);
-  const {sendRequest} = usePostRequest();
+  const { sendRequest } = usePostRequest();
+  const { userName } = props.location.state;
 
   const createCard = (body) => {
     sendRequest("http://localhost:8080/card", body)
@@ -78,7 +136,7 @@ const CreateCard = () => {
   return (
     <div className="container">
       <h2> Create BookMark card:</h2>
-      <CardForm createCard={createCard} />
+      <CardForm createCard={createCard} user={userName} />
       {isSuccess ? <p id="success">Card created successfully</p> : <br />}
     </div>
   );

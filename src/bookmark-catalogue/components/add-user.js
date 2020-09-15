@@ -15,6 +15,7 @@ const UserForm = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     props.createUser(value);
+    console.log(JSON.stringify(value));
     reset();
   };
 
@@ -83,7 +84,7 @@ const CreateUser = () => {
   const {sendRequest} = usePostRequest();
 
   const createUser = (body) => {
-    sendRequest("http://localhost:8080/user", body)
+    sendRequest("https://user-management-sb.herokuapp.com/user", body)
       .then((response) => setIsSuccess(true))
       .catch(() => alert("Error occurred while creating user"));
   };
