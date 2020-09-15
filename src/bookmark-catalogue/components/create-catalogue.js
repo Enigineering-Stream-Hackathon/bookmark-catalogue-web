@@ -3,16 +3,6 @@ import { Button, FormGroup, Form, FormLabel } from "react-bootstrap";
 import useInput from "../hooks/use-input";
 import usePostRequest from "../hooks/use-request";
 
-//Select Category - FeatureTeam, Tribe , Application
-//Select SubCategory - (FT1/FT2) or (T1/T2)
-//Group Name:
-
-//Save Group
-
-//Long url - http://localhost:3000/groups?
-
-//Url --http://localhost:8080/FT1/asdasdasasas
-
 const CatalogueForm = (props) => {
   const initialValue = {
     title: "",
@@ -21,7 +11,7 @@ const CatalogueForm = (props) => {
     creator: props.user,
     longUrl: "http://localhost:3000/catalogues/",
   };
-  const { value, reset, handleChange } = useInput(initialValue);
+  const { value, handleChange } = useInput(initialValue);
 
   const categoryToSubCategory = (category) => {
     if (category === "FEATURE_TEAM") {

@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import OneCatalogue from "./one-catalogue";
+import React from "react";
+
 
 const AllCatalogues = () => <div></div>
 

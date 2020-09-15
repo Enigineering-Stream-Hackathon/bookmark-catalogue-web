@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { Button, Card } from "react-bootstrap";
-import { useParams } from "react-router-dom";
+import React from "react";
 
 const CatalogueDetails = (props) => <div></div>
 
