@@ -24,7 +24,7 @@ afterEach(() => {
 afterAll(() => server.close());
 
 test("allows the user to generate short url from long url", async () => {
-  render(<CreateShortUrl />);
+  render(<CreateShortUrl/>);
 
   // fill out the form
   fireEvent.change(screen.getByLabelText('Enter Url'), {

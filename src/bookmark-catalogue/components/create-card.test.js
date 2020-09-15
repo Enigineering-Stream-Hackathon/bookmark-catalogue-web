@@ -10,6 +10,7 @@ import {
   waitForElement,
   wait,
 } from "@testing-library/react";
+import { MemoryRouter } from "react-router-dom";
 
 const server = setupServer(
   rest.post("/card", (req, res, ctx) => {
@@ -24,7 +25,16 @@ afterEach(() => {
 afterAll(() => server.close());
 
 test("allows the user to create card", async () => {
-  render(<CreateCard />);
+  render(
+    <CreateCard
+      location={{
+        pathname: "/create-card",
+        state: {
+          userName: 'userName',
+        },
+      }}
+    />
+  );
 
   // fill out the form
   fireEvent.change(screen.getByLabelText(/title/i), {
