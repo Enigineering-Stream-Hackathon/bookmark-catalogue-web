@@ -1,6 +1,6 @@
 import React from "react";
 
 
-const Login = () => <div></div>;
+const Login = () => <div> </div>;
 
 export default Login;
