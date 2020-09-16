@@ -99,7 +99,7 @@ const CreateGroup = (props) => {
 
   return (
     <div className="container">
-      <h2> Create Catalogue:</h2>
+      <h2 className= "header-design"> Create Catalogue:</h2>
       <CatalogueForm createGroup={createGroup} user={userName} />
       {isSuccess ? (
         <div>

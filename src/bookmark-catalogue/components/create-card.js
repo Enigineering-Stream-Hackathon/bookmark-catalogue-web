@@ -44,6 +44,7 @@ const CardForm = (props) => {
         </FormLabel>
         <input
           id="description"
+          max="150"
           className="form-control"
           type="text"
           name="description"
@@ -135,7 +136,7 @@ const CreateCard = (props) => {
 
   return (
     <div className="container">
-      <h2> Create BookMark card:</h2>
+      <h2 className= "header-design"> Create BookMark card:</h2>
       <CardForm createCard={createCard} user={userName} />
       {isSuccess ? <p id="success">Card created successfully</p> : <br />}
     </div>

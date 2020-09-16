@@ -84,14 +84,14 @@ const CreateUser = () => {
   const {sendRequest} = usePostRequest();
 
   const createUser = (body) => {
-    sendRequest("https://user-management-sb.herokuapp.com/user", body)
+    sendRequest("http://localhost:8080/user", body)
       .then((response) => setIsSuccess(true))
       .catch(() => alert("Error occurred while creating user"));
   };
 
   return (
     <div className="container">
-      <h2> Create User:</h2>
+      <h2 className= "header-design"> Create User:</h2>
       <UserForm createUser={createUser} />
       {isSuccess ? <p id="success">User created successfully</p> : <br />}
     </div>

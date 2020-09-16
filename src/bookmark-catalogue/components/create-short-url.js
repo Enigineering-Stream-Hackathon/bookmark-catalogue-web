@@ -60,7 +60,7 @@ const CreateShortUrl = () => {
 
   return (
     <div className="container">
-      <h1>Create Short Url:</h1>
+      <h1 className= "header-design">Create Short Url:</h1>
       <GenerateUrl generateUrl={generateUrl} />
       <div className="input-group mb-3 my-5">
         <input
