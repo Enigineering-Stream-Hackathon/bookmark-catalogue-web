@@ -1,11 +1,61 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const Home = (props) => {
   const { userName } = props.location.state;
+  const noUser = {
+    id: "",
+    name: "",
+    role: "ADMIN",
+    password: "",
+  };
+  const [user, setUser] = useState(noUser);
+
+  useEffect(() => {
+    fetch(`http://localhost:8081/user?userName=${userName}`)
+      .then((res) => res.json())
+      .then(
+        (result) => {
+          setUser(result);
+          console.log("***********" + JSON.stringify(result));
+        },
+
+        (error) => {
+          alert("Error occurre while retrieving user");
+        }
+      );
+  }, [userName]);
+
+  let createGroup;
+  let addUser;
+  if ("ADMIN" === user.role) {
+    createGroup = (
+      <div className="container">
+        <Link
+          to={{
+            pathname: "/create-group",
+            state: {
+              userName: userName,
+            },
+          }}
+        >
+          Create Groups
+        </Link>
+      </div>
+    );
+
+    addUser = (
+      <div className="container">
+        <Link to="/user">Add User</Link>
+      </div>
+    );
+  }
+
   return (
     <div>
-      <p>{userName}</p>
+      <h2 className= "header-design">Home</h2>
+      <p>{user.id}</p>
+      <p>{user.role}</p>
       <div className="container">
         <Link to="/generate">Generate Short Url</Link>
       </div>
@@ -22,24 +72,20 @@ const Home = (props) => {
         </Link>
       </div>
       <div className="container">
-        <Link to={{
-            pathname: '/cards',
+        <Link
+          to={{
+            pathname: "/cards",
             state: {
               userName: userName,
             },
-          }}>View Cards</Link>
+          }}
+        >
+          View Cards
+        </Link>
       </div>
-      <div className="container">
-        <Link to={{
-            pathname: '/create-group',
-            state: {
-              userName: userName,
-            },
-          }}>Create Groups</Link>
-      </div>
-      <div className="container">
-        <Link to="/user">Add User</Link>
-      </div>
+      {createGroup}
+
+      {addUser}
       <div className="container">
         <Link to="/catalogues">All Catalogues</Link>
       </div>
