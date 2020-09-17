@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { ListGroup } from "react-bootstrap";
 import CardBookmark from "./bookmark-card"
+import { BOOKMARK_CATALOGUE } from "./constants";
 
 const CardView = (props) => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -8,7 +9,7 @@ const CardView = (props) => {
   const { userName } = props.location.state;
 
   useEffect(() => {
-    fetch(`http://localhost:8080/cards?context=${userName}`)
+    fetch(`${BOOKMARK_CATALOGUE}/cards?context=${userName}`)
       .then((res) => res.json())
       .then(
         (result) => {

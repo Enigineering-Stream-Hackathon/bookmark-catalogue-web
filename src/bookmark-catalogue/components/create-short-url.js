@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import useInput from "../hooks/use-input";
 import usePostRequest from "../hooks/use-request";
+import { BOOKMARK_CATALOGUE } from "./constants";
 
 const GenerateUrl = (props) => {
   const initialValue = {
@@ -50,7 +51,7 @@ const CreateShortUrl = () => {
   const { sendRequest } = usePostRequest();
 
   const generateUrl = (body) => {
-    sendRequest("http://localhost:8080/short-url", body)
+    sendRequest(`${BOOKMARK_CATALOGUE}/short-url`, body)
       .then((response) => response.json())
       .then((json) => {
         setShortUrl(json.shortUrl);

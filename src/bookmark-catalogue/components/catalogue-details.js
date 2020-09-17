@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { BOOKMARK_CATALOGUE } from "./constants";
 import OneCatalogueDetails from "./one-catalogue-details";
 
 const CatalogueDetails = (props) => {
@@ -9,7 +10,7 @@ const CatalogueDetails = (props) => {
   const [allCards, setAllCards] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:8080/catalogue?catalogueId=${catalogueId}`)
+    fetch(`${BOOKMARK_CATALOGUE}/catalogue?catalogueId=${catalogueId}`)
       .then((res) => res.json())
       .then(
         (result) => {

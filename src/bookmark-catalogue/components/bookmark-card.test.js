@@ -8,7 +8,7 @@ test("populates each bookmark card", async () => {
   const card = {
     title: "Card Title",
     description: "card description",
-    shortUrl: "http://localhost:8080/tiny/Tribe2/690b455bc8494745e1a80c1662537e6cde66e5a6b14308d4c29ffdeef099789c"
+    shortUrl: `${BOOKMARK_CATALOGUE}/tiny/Tribe2/690b455bc8494745e1a80c1662537e6cde66e5a6b14308d4c29ffdeef099789c`
   };
 
   render(

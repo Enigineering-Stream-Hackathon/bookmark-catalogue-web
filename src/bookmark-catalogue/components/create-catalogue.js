@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button, FormGroup, Form, FormLabel } from "react-bootstrap";
 import useInput from "../hooks/use-input";
 import usePostRequest from "../hooks/use-request";
+import { BOOKMARK_CATALOGUE } from "./constants";
 
 const CatalogueForm = (props) => {
   const initialValue = {
@@ -15,11 +16,11 @@ const CatalogueForm = (props) => {
 
   const categoryToSubCategory = (category) => {
     if (category === "FEATURE_TEAM") {
-      return ["FT1", "FT2"];
+      return ['FT1', 'FT2','FT3', 'FT4' ];
     } else if (category === "TRIBE") {
-      return ["Tribe1", "Tribe2"];
+      return ['Tribe1', 'Tribe2','Tribe3','Tribe4'];
     } else {
-      return ["Platform 1", "Platform 2"];
+      return ['Platform1', 'Platform2','Platform3','Platform4'];
     }
   };
 
@@ -92,7 +93,7 @@ const CreateGroup = (props) => {
   const { userName } = props.location.state;
 
   const createGroup = (body) => {
-    sendRequest("http://localhost:8080/catalogue", body)
+    sendRequest(`${BOOKMARK_CATALOGUE}/catalogue`, body)
       .then((response) => setIsSuccess(true))
       .catch(() => alert("Error occurred while creating group"));
   };
