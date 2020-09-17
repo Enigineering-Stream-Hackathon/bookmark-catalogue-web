@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button, FormGroup, Form, FormLabel } from "react-bootstrap";
 import useInput from "../hooks/use-input";
 import usePostRequest from "../hooks/use-request";
-import { BOOKMARK_CATALOGUE } from "./constants";
+import { BOOKMARK_CATALOGUE, BOOKMARK_CATALOGUE_WEB } from "./constants";
 
 const CatalogueForm = (props) => {
   const initialValue = {
@@ -10,7 +10,7 @@ const CatalogueForm = (props) => {
     category: "",
     subCategory: "",
     creator: props.user,
-    longUrl: "http://localhost:3000/catalogues/",
+    longUrl: `${BOOKMARK_CATALOGUE_WEB}/catalogues/`,
   };
   const { value, handleChange } = useInput(initialValue);
 

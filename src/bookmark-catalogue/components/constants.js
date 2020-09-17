@@ -1,2 +1,3 @@
-export const BOOKMARK_CATALOGUE = 'http://localhost:8080'
-export const USER_MANAGEMENT = 'http://localhost:8081'
+export const BOOKMARK_CATALOGUE = 'https://bookmark-catalogue.herokuapp.com/'
+export const USER_MANAGEMENT = 'https://user-management-bs.herokuapp.com'
+export const BOOKMARK_CATALOGUE_WEB = 'https://bookmark-catalogue-web.herokuapp.com'
