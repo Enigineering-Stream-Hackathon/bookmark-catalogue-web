@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import OneCatalogue from "./one-catalogue";
+import { BOOKMARK_CATALOGUE } from "./constants";
 
 const AllCatalogues = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [catalogues, setCatalogues] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:8080/catalogues`)
+    fetch(`${BOOKMARK_CATALOGUE}/catalogues`)
       .then((res) => res.json())
       .then(
         (result) => {

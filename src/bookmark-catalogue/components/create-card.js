@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button, FormGroup, Form, FormLabel } from "react-bootstrap";
 import useInput from "../hooks/use-input";
 import usePostRequest from "../hooks/use-request";
+import { BOOKMARK_CATALOGUE } from "./constants";
 
 const CardForm = (props) => {
   const initialValue = {
@@ -95,8 +96,8 @@ const CardForm = (props) => {
         >
           <option>Tribe1</option>
           <option>Tribe2</option>
+          <option>Tribe3</option>
           <option>Tribe4</option>
-          <option>Tribe5</option>
         </Form.Control>
       </Form.Group>
       <Form.Group>
@@ -129,7 +130,7 @@ const CreateCard = (props) => {
   const { userName } = props.location.state;
 
   const createCard = (body) => {
-    sendRequest("http://localhost:8080/card", body)
+    sendRequest(`${BOOKMARK_CATALOGUE}/card`, body)
       .then((response) => setIsSuccess(true))
       .catch(() => alert("Error occurred while creating card"));
   };

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { USER_MANAGEMENT } from "./constants";
 
 const Home = (props) => {
   const { userName } = props.location.state;
@@ -12,7 +13,7 @@ const Home = (props) => {
   const [user, setUser] = useState(noUser);
 
   useEffect(() => {
-    fetch(`http://localhost:8081/user?userName=${userName}`)
+    fetch(`${USER_MANAGEMENT}/user?userName=${userName}`)
       .then((res) => res.json())
       .then(
         (result) => {
@@ -54,8 +55,6 @@ const Home = (props) => {
   return (
     <div>
       <h2 className= "header-design">Home</h2>
-      <p>{user.id}</p>
-      <p>{user.role}</p>
       <div className="container">
         <Link to="/generate">Generate Short Url</Link>
       </div>

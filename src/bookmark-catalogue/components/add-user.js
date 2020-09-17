@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button, FormGroup, Form, FormLabel } from "react-bootstrap";
 import useInput from "../hooks/use-input";
 import usePostRequest from "../hooks/use-request";
+import { USER_MANAGEMENT } from "./constants";
 
 const UserForm = (props) => {
   const initialValue = {
@@ -84,7 +85,7 @@ const CreateUser = () => {
   const {sendRequest} = usePostRequest();
 
   const createUser = (body) => {
-    sendRequest("http://localhost:8080/user", body)
+    sendRequest(`${USER_MANAGEMENT}/user`, body)
       .then((response) => setIsSuccess(true))
       .catch(() => alert("Error occurred while creating user"));
   };
