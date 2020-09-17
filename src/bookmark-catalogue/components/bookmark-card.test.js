@@ -3,6 +3,7 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 import CardBookmark from "./bookmark-card";
+import { BOOKMARK_CATALOGUE } from "./constants";
 
 test("populates each bookmark card", async () => {
   const card = {
