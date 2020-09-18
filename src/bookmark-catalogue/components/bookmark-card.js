@@ -12,7 +12,7 @@ const CardBookmark = (props) => (
           variant="primary"
           onClick={(e) => {
             e.preventDefault();
-            window.location.href = props.card.shortUrl;
+            window.open(props.card.shortUrl)
           }}
         >
           Open Link

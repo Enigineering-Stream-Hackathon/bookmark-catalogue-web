@@ -54,10 +54,12 @@ const UserForm = (props) => {
     as="select"
     name="role"
     id= "role"
+    required
     value={value.role}
     onChange ={handleChange}>
-      <option>ADMIN</option>
-      <option>USER</option>
+      <option default value="">Please Select</option>
+      <option value="ADMIN">ADMIN</option>
+      <option value="USER">USER</option>
     </Form.Control>
   </Form.Group>
       <FormGroup>

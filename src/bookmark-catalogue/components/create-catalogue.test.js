@@ -52,7 +52,7 @@ test("allows the user to create catalogue", async () => {
   fireEvent.click(screen.getByText("Create Catalogue"));
 
   await (() => {
-    expect(getByText("Group created successfully")).toBeInTheDocument();
+    expect(getByText("Catalogue created successfully")).toBeInTheDocument();
   });
 });
 
@@ -107,8 +107,8 @@ test("Should show platform list in the sub category if platform is PLATFORM", ()
   );
 
   fireEvent.change(screen.getByLabelText("Category"), {
-    target: { value: "TRIBE" },
+    target: { value: "PLATFORM" },
   });
 
-  expect(screen.getByText("Tribe1")).toBeInTheDocument();
+  expect(screen.getByText("Platform1")).toBeInTheDocument();
 });

@@ -14,7 +14,6 @@ const OneCatalogueDetails = (props) => {
       cards.push(it);
     });
     cardsOfCards.push(cards);
-    console.log("@@@@@@@@@@@@@@@@@@@@@@@@" + JSON.stringify(cardsOfCards));
     return cardsOfCards;
   };
 
@@ -44,7 +43,7 @@ const OneCatalogueDetails = (props) => {
           {cardOfCards(props.allCards).map((it) => (
             <ListGroup horizontal key={it}>
               {it.map((c) => (
-                <ListGroup.Item>
+                <ListGroup.Item key={c.catalogueId}>
                   <CardBookmark card={c} />
                 </ListGroup.Item>
               ))}
