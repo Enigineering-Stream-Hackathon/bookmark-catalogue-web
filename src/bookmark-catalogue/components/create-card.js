@@ -78,7 +78,7 @@ const CardForm = (props) => {
           value={value.featureTeam}
           onChange={handleChange}
         >
-          <option selected="true" value="">Please Select</option>
+          <option default value="">Please Select</option>
           <option value="FT1">FT1</option>
           <option value="FT2">FT2</option>
           <option value="FT3">FT3</option>
@@ -97,7 +97,7 @@ const CardForm = (props) => {
           value={value.tribe}
           onChange={handleChange}
         >
-          <option selected="true" value="">Please Select</option>
+          <option default value="">Please Select</option>
           <option value="Tribe1">Tribe1</option>
           <option value="Tribe2">Tribe2</option>
           <option value="Tribe3">Tribe3</option>
@@ -116,7 +116,7 @@ const CardForm = (props) => {
           value={value.platform}
           onChange={handleChange}
         >
-        <option selected="true" value="">Please Select</option>
+        <option default value="">Please Select</option>
           <option value="Platform1">Platform1</option>
           <option value="Platform2">Platform2</option>
           <option value="Platform3">Platform3</option>

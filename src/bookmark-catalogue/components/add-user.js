@@ -57,7 +57,7 @@ const UserForm = (props) => {
     required
     value={value.role}
     onChange ={handleChange}>
-      <option selected="true" value="">Please Select</option>
+      <option default value="">Please Select</option>
       <option value="ADMIN">ADMIN</option>
       <option value="USER">USER</option>
     </Form.Control>
