@@ -104,22 +104,7 @@ const CreateGroup = (props) => {
       <CatalogueForm createGroup={createGroup} user={userName} />
       {isSuccess ? (
         <div>
-          <p id="success">Group created successfully</p>
-          <div className="input-group mb-3 my-5">
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Short Url"
-              aria-label="Short Url"
-              value="http://shorturl"
-              readOnly
-            ></input>
-            <div className="input-group-append">
-              <button className="btn btn-outline-secondary" type="button">
-                Copy
-              </button>
-            </div>
-          </div>
+          <p id="success">Catalogue created successfully</p>
         </div>
       ) : (
         <br />

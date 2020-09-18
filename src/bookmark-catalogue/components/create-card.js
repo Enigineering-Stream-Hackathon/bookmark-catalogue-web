@@ -74,13 +74,15 @@ const CardForm = (props) => {
           as="select"
           name="featureTeam"
           id="featureTeam"
+          required
           value={value.featureTeam}
           onChange={handleChange}
         >
-          <option>FT1</option>
-          <option>FT2</option>
-          <option>FT3</option>
-          <option>FT4</option>
+          <option selected="true" value="">Please Select</option>
+          <option value="FT1">FT1</option>
+          <option value="FT2">FT2</option>
+          <option value="FT3">FT3</option>
+          <option value="FT4">FT4</option>
         </Form.Control>
       </Form.Group>
       <Form.Group>
@@ -91,13 +93,15 @@ const CardForm = (props) => {
           as="select"
           name="tribe"
           id="tribe"
+          required
           value={value.tribe}
           onChange={handleChange}
         >
-          <option>Tribe1</option>
-          <option>Tribe2</option>
-          <option>Tribe3</option>
-          <option>Tribe4</option>
+          <option selected="true" value="">Please Select</option>
+          <option value="Tribe1">Tribe1</option>
+          <option value="Tribe2">Tribe2</option>
+          <option value="Tribe3">Tribe3</option>
+          <option value="Tribe4">Tribe4</option>
         </Form.Control>
       </Form.Group>
       <Form.Group>
@@ -108,13 +112,15 @@ const CardForm = (props) => {
           as="select"
           name="platform"
           id="platform"
+          required
           value={value.platform}
           onChange={handleChange}
         >
-          <option>Platform1</option>
-          <option>Platform2</option>
-          <option>Platform3</option>
-          <option>Platform4</option>
+        <option selected="true" value="">Please Select</option>
+          <option value="Platform1">Platform1</option>
+          <option value="Platform2">Platform2</option>
+          <option value="Platform3">Platform3</option>
+          <option value="Platform4">Platform4</option>
         </Form.Control>
       </Form.Group>
       <Button className="btn btn-primary my-1 mr-2 ml-2" type="submit">
